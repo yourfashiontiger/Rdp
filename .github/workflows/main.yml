@@ -1,0 +1,35 @@
+name: Run Telegram Bot 24/7
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run bot and soul continuously
+        run: |
+          #!/bin/bash
+          while true; do
+              python bot.py &
+              python soul.py &
+              wait
+              echo "Bot crashed, restarting in 5 seconds..."
+              sleep 5
+          done
