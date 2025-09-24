@@ -1,0 +1,16 @@
+{
+    "123456789": {
+        "user_id": 7703244086,
+        "username": "owner",
+        "plan": 1,
+        "valid_until": "2030-10-31",
+        "access_count": 0
+    },
+    "987654321": {
+        "user_id": 987654321,
+        "username": "anotheruser",
+        "plan": 2,
+        "valid_until": "2025-12-01",
+        "access_count": 5
+    }
+}
